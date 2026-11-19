@@ -1,7 +1,6 @@
 
 """Module 2 — Data preprocessing utilities."""
 
-import numpy as np
 import pandas as pd
 
 
@@ -84,7 +83,7 @@ def preprocess_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def build_feature_vector(user_input: dict) -> np.ndarray:
+def build_feature_vector(user_input: dict) -> pd.DataFrame:
     """Convert symptom-form inputs into the model's expected features."""
 
     weight = float(user_input["weight"])
@@ -115,7 +114,4 @@ def build_feature_vector(user_input: dict) -> np.ndarray:
         "exercise": encode_yes_no(user_input["exercise"]),
     }
 
-    return np.array(
-        [[row[column] for column in FEATURE_ORDER]],
-        dtype=float,
-    )
+    return pd.DataFrame([row], columns=FEATURE_ORDER, dtype=float)

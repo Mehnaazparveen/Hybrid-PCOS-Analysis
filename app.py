@@ -291,7 +291,16 @@ elif page == "Dashboard":
 # ============================================================
 elif page == "EDA":
     st.title("Exploratory Data Analysis")
-    render_eda(load_dataset())
+    try:
+        eda_dataset = load_dataset()
+    except FileNotFoundError:
+        st.error(
+            "Clinical dataset not found. To use EDA, place "
+            "`dataset/PCOS_data_without_infertility.xlsx` in the project "
+            "directory. The workbook must include the `Full_new` worksheet."
+        )
+    else:
+        render_eda(eda_dataset)
 
 # ============================================================
 else:
