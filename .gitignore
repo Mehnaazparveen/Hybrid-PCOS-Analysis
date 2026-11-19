@@ -1,0 +1,41 @@
+# Python virtual environments and caches
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local secrets, editor and OS files
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local data (retrieve separately; check source licensing)
+dataset/
+datasets/
+cnn_dataset/
+images/
+
+# Generated files and temporary reports
+*.log
+*.bak
+*before_*.py
+*before_*.keras
+*backup*.joblib
+*backup*.keras
+cnn_dataset_inspection.png
+pcosgen_cross_split_candidates.png
+gradcam_preview.png
+
+# Note: Active trained models are NOT ignored here.
+# Review licensing and repository size before choosing to commit models/*.keras and *.joblib.
+
+# Older CNN model — not used by the current application
+models/cnn_model.keras
